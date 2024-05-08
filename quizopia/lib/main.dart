@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
+import './question.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 // ignore: must_be_immutable
 class MyApp extends StatefulWidget {
   // ignore: use_super_parameters
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return MyAppState();
+    return _MyAppState();
   }
 }
 
-class MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0;
 
-  void answerQuestion() {
+  void _answerQuestion() {
     setState(() {
-      questionIndex = questionIndex + 1;
+      _questionIndex = _questionIndex + 1;
     });
     // ignore: avoid_print
-    print(questionIndex);
+    print(_questionIndex);
   }
 
   @override
@@ -32,17 +33,25 @@ class MyAppState extends State<MyApp> {
       'What\'s your favorite animal?',
     ];
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        backgroundColor: Colors.blueGrey,
         appBar: AppBar(
-          title: const Text('Quizopia'),
+          title: const Text(
+            'Quizopia',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          backgroundColor: Colors.amber,
+          centerTitle: true,
         ),
         body: Column(
           children: [
-            Text(
-              questions[questionIndex],
+            Question(
+              questions[_questionIndex],
+              
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: const Text('Answer 1'),
             ),
             ElevatedButton(
@@ -58,7 +67,7 @@ class MyAppState extends State<MyApp> {
               child: const Text('Answer 3'),
             ),
             ElevatedButton(
-              onPressed: answerQuestion,
+              onPressed: _answerQuestion,
               child: const Text('Answer 4'),
             ),
           ],
