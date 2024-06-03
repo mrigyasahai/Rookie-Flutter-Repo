@@ -2,9 +2,7 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:english_words/english_words.dart';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:flutter/widgets.dart';
 
 void main() => runApp(XylophoneApp());
 
@@ -15,21 +13,20 @@ class XylophoneApp extends StatelessWidget {
     await player.play(
       AssetSource('note$noteNumber.wav'),
     );
-    player.resume();
   }
 
-  void buildKey(){
-    Expanded(
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.red,
-                  ),
-                  onPressed: () async {
-                    playSound(1);
-                  },
-                  child: Container(),
-                ),
-              );
+  Expanded buildKey({required Color color, required int soundNumber}) {
+    return Expanded(
+      child: TextButton(
+        style: TextButton.styleFrom(
+          backgroundColor: color,
+        ),
+        onPressed: () {
+          playSound(soundNumber);
+        },
+        child: Container(),
+      ),
+    );
   }
 
   @override
@@ -41,13 +38,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
-              buildKey(),
+              buildKey(color: Colors.red, soundNumber: 1),
+              buildKey(color: Colors.orange, soundNumber: 2),
+              buildKey(color: Colors.yellow, soundNumber: 3),
+              buildKey(color: Colors.green, soundNumber: 4),
+              buildKey(color: Colors.blue, soundNumber: 5),
+              buildKey(color: Colors.indigo, soundNumber: 6),
+              buildKey(color: Colors.purple, soundNumber: 7),
             ],
           ),
         ),
