@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "152140688225",
+    "project_id": "crud-notes-project",
+    "storage_bucket": "crud-notes-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:152140688225:android:faa1615911c0685c2bb320",
+        "android_client_info": {
+          "package_name": "com.example.crud_notes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB16pi6a3P-zgjWbMjmviNCaivMWlL7DzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
