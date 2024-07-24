@@ -1,12 +1,13 @@
 // ignore_for_file: unused_import, prefer_const_constructors, unused_local_variable
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 void main() => runApp(XylophoneApp());
 
 class XylophoneApp extends StatelessWidget {
+  const XylophoneApp({super.key});
+
 
   void playSound(int noteNumber) async {
     final player = AudioPlayer();
